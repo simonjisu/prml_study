@@ -2,7 +2,7 @@
 
 사람이 쓴 숫자의 이미지로 어떤 숫자인지를 판별하는 "손글씨 인식" 알고리즘을 작성한다고 생각해보면
 
-<img src="https://dl.dropbox.com/s/mupb2u8hij1uoeb/digits.png" height="400" width="800">
+<img src="https://dl.dropbox.com/s/mupb2u8hij1uoeb/digits.png" height="400" width="1200">
 
 휴리스틱한 규칙(handcrafted rules or heuristics)으로도 만들 수 있지만, 규칙에 위반되는 것이나 조금만 예상 외의 데이터가 들어오면 아주 형편없는 결과를 얻을 것이다.
 
