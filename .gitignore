@@ -2,3 +2,5 @@ _book
 node_modules
 .ipynb_checkpoints
 __pycache__
+_nbconvert
+
