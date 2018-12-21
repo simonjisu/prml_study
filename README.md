@@ -4,7 +4,6 @@
 
 * 원서 다운로드: [link](https://aka.ms/prml) 
 * GitBook: [https://simonjisu.github.io/prml_study](https://simonjisu.github.io/prml_study)
-* 코드: [Jupyter Notebook](https://github.com/simonjisu/prml_study/tree/master/notebooks)
 * 작성자: 장지수([simonjisu](https://github.com/simonjisu))
 
 ## 목차
