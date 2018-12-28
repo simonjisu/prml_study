@@ -38,7 +38,7 @@ plt.ylabel('t', rotation=0, fontsize=16)
 plt.show()
 ```
 
-![png](../assets/1-example/1-example_2_0.png)
+![png](../assets/chapter-1/1-example/1-example_2_0.png)
 
 [**확률이론(Probability theory)**](https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0%EB%A1%A0) 은 불확실성을 정확하고 양적인 방식으로 측정할 수 있는 하나의 프레임워크다. [**결정이론(Decision theory)**](https://ko.wikipedia.org/wiki/%EA%B2%B0%EC%A0%95_%EC%9D%B4%EB%A1%A0) 은 확률로 표현 것들을 예측(결정) 할 때, 적절한 척도를 가지고 이들을 합리적으로 최적화 하는 이론이다. 
 
@@ -211,7 +211,7 @@ plt.ylabel('t', rotation=0, fontsize=16)
 plt.show()
 ```
 
-![png](../assets/1-example/1-example_11_0.png)
+![png](../assets/chapter-1/1-example/1-example_11_0.png)
 
 그리고 매 번 차수($$M$$)를 선택할 때 마다, 훈련 세트에서 최적화된 계수를 구하고, 이 계수를 사용하여 손실 값의 잔차를 훈련 세트와 테스트 세트에 각각 적용해서 구한다. 그 방법 중에 하나는 RMS error(root-mean-sqruare error) 라는 방법으로 구하는데, 식은 아래와 같다. 
 
@@ -272,25 +272,25 @@ for m in range(10):
 M=0 | rms_train: 0.6353 rms_test: 0.7221
 ```
 
-![png](../assets/1-example/1-example_23_1.png)
+![png](../assets/chapter-1/1-example/1-example_23_1.png)
 
 ```python
 M=1 | rms_train: 0.4227 rms_test: 0.4508
 ```
 
-![png](../assets/1-example/1-example_23_3.png)
+![png](../assets/chapter-1/1-example/1-example_23_3.png)
 
 ```python
 # M=3 | rms_train: 0.0930 rms_test: 0.1238
 ```
 
-![png](../assets/1-example/1-example_23_7.png)
+![png](../assets/chapter-1/1-example/1-example_23_7.png)
 
 ```python
 # M=9 | rms_train: 0.0872 rms_test: 19.2855
 ```
 
-![png](../assets/1-example/1-example_23_19.png)
+![png](../assets/chapter-1/1-example/1-example_23_19.png)
 
 우리의 진리인 $$\sin(2\pi x)$$ 와 가장 가까운 곡선은 $$M=3$$ 일때의 곡선이다. 다른 차수에서는 좋지 않은 표현력(진리 함수와 모양이 비슷하지 않음)을 가지고 있는데, 특히 $$M=9$$ 일 때를 살펴보면 우리의 훈련데이터를 관통하는 아주 정확한 일치성을 보인다. 하지만 곡선을 그려보면 천장과 밑바닥을 뚫는 경우가 발생하는데, 아주 나쁜 표현력을 가지고 있다는 뜻이다. 보통 이러한 현상을 **과대적합(over-fitting)** 이라고 한다. $$M=0$$ 혹은 $$M=1$$ 의 RMS error 가 상대적으로 엄청 크진 않지만, 해당 함수로는 $$\sin$$ 함수를 표현해내기에는 역부족해 보인다. 이러한 현상을 **과소적합(under-fitting)** 이라고 한다.
 
@@ -309,7 +309,7 @@ plt.xlabel("M", fontsize=16)
 plt.show()
 ```
 
-![png](../assets/1-example/1-example_24_0.png)
+![png](../assets/chapter-1/1-example/1-example_24_0.png)
 
 훈련 세트와 테스트 세트 간의 RMS error 차이가 처음에는 줄어들다가 나중에는 커지는 것을 알 수 있다. 즉 최적의 차수는 훈련 세트와 테스트 세트 간의 측정척도가 작으며, 테스트 세트에서 어느정도 낮은 측정 척도를 가지고 있어야 한다는 것을 알 수 있다.
 
@@ -361,7 +361,7 @@ plot(x2, t2, x_sin, t_sin, optimal_w2, m=9, ax=ax2)
 plt.show()
 ```
 
-![png](../assets/1-example/1-example_27_0.png)
+![png](../assets/chapter-1/1-example/1-example_27_0.png)
 
 즉, 데이터가 많아 질 수록 오버피팅 문제는 적어진다. 또 다른 말로 해석하면, 큰 데이터 세트일 수록 더 복잡한(유연한) 모델을 만들 수 있다. 
 
@@ -376,8 +376,67 @@ $$
 E(\mathbf{w}) = \dfrac{1}{2} \Vert y - V \cdot w \Vert^2 + \frac{\lambda}{2} \Vert \mathbf{w} \Vert^2 \qquad \cdots (4)
 $$
 
-여기서 $$\Vert \mathbf{w} \Vert^2 \equiv \mathbf{w}^T\mathbf{w}=w_0^2 + w_1^2 + \cdots w_M^2$$ 다. 계수 $$\lambda$$ 는 추가적으로 제약조건의 비중을 조절하는 하이퍼파라미터다. 
+여기서 $$\Vert \mathbf{w} \Vert^2 \equiv \mathbf{w}^T\mathbf{w}=w_0^2 + w_1^2 + \cdots w_M^2$$ 다. **정규화 계수** $$\lambda$$ 는 추가적으로 제약조건의 비중을 조절하는 하이퍼파라미터다. 
+
+여러가지 정규화 방법이 있으나, 여기서는 제일 간단한 계수의 제곱을 손실함수에 더해주는 형식으로 패널티를 더했다. **(4)** 식의 해를 구하는 것은 간단하다. 
+
+$$
+\begin{aligned}
+\frac{\partial E(w)}{\partial w} &= V^Ty-V^TV\cdot w+\lambda w = 0 \\
+w &= (V^TV- \lambda I_{(M+1)})^{-1}V^Ty
+\end{aligned}
+$$
+
+```python
+def ridge_solution(x, t, m, alpha=0):
+    V = vandermonde_matrix(x, m)
+    return np.linalg.inv(np.dot(V.T, V) - alpha * np.eye(m+1)).dot(V.T).dot(t)
+```
+
+정규화 계수의 효과는 아래의 그림을 보면 극명하다. 정규화 계수가 클수록 계수 $$w$$ 를 강력하게 규제하며 더이상 커지지 못하게 한다. 또한, 그림에서 볼 수 있듯이 모델의 복잡성을 줄여주고 과대적합을 막아준다.
+
+```python
+M=9
+optimal_w1 = ridge_solution(x, t, m=M, alpha=1e-8)
+optimal_w2 = ridge_solution(x, t, m=M, alpha=1.0)
+
+# Plot predicted line
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+
+def plot_ridge(x, t, x_sin, t_sin, optimal_w, m, text, ax):
+    ax.plot(x_sin, t_sin, c="green", label="sin function")
+    ax.plot(x_sin, polynomial_function(x_sin, optimal_w, m), c="red", label=f"model M={m}")
+    ax.scatter(x, t)
+    ax.set_xlim((0, 1))
+    ax.set_ylim((-1.25, 1.25))
+    ax.set_xlabel('x', fontsize=16)
+    ax.set_ylabel('t', rotation=0, fontsize=16)
+    ax.legend()
+    ax.annotate(text, (0.6, 0.5), fontsize=14)
+    
+plot_ridge(x, t, x_sin, t_sin, optimal_w1, m=M, text='lambda = 1e-8', ax=ax1)
+plot_ridge(x, t, x_sin, t_sin, optimal_w2, m=M, text='lambda = 1.0', ax=ax2)
+
+plt.show()
+```
+
+![png](../assets/chapter-1/1-example/1-example_30_0.png)
+
+```python
+print(f"coefficients at lambda=1e-8 is {optimal_w1.round(3)}")
+print(f"coefficients at lambda=1.0 is {optimal_w2.round(3)}")
+
+# -----print result-----
+# coefficients at lambda=1e-8 is [  0.104   0.223  33.063 -91.357   3.467  90.523  39.05  -58.172 -72.941 55.889]
+# coefficients at lambda=1.0 is  [  0.364   0.321   0.074  -0.155  -0.312  -0.409  -0.465  -0.495  -0.507 -0.51 ]
+```
+
+통계학에서 이러한 테크닉을 **수축 방법(shrinkage method)** 이라고 하는데, 그 이유는 계수의 값을 줄여주기 때문이다. 특히, 예시에서 나온 방법은 **ridge regression** 이다. 향후에 이야기할 신경망에서는 **weight decay** 라고도 한다. 그렇다고해서 아주 높은 정규화를 항상 강하게 가져가야하는 것은 아니다. 위에 그림에서 정규화 계수가 1인 모델은 과소적합을 야기했기 때문이다. 
+
+아래 그림은 정규화 계수가 커짐에 따라 RMS error 를 구한 것이다. 차수가 9 임에도 불구하고 낮은 RMS error 를 유지하고 있다.
+
+![png](../assets/chapter-1/1-example/1-example_34_0.png)
 
 ---
 
-(책에서 나온 그래프랑 상이 할 수도 있는데, 이는 데이터를 샘플링 할때 조금씩 다르기 때문이다.)
+(책에서 나온 그래프랑 상이 할 수도 있는데, 이는 seed 가 달라서 책에 있는 데이터와 완전히 같을 수가 없기 때문이다.)
