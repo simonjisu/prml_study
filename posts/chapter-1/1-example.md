@@ -1,5 +1,5 @@
 Example: Polynomial Cureve Fitting
----
+===
 
 제일 간단한 회귀문제를 예시로 든다.
 
@@ -270,13 +270,13 @@ for m in range(10):
 그중 차수가 0, 1, 3, 9 인 경우를 살펴본다.
 
 ```python
-M=0 | rms_train: 0.6353 rms_test: 0.7221
+# M=0 | rms_train: 0.6353 rms_test: 0.7221
 ```
 
 ![png](../assets/chapter-1/1-example/1-example_23_1.png)
 
 ```python
-M=1 | rms_train: 0.4227 rms_test: 0.4508
+# M=1 | rms_train: 0.4227 rms_test: 0.4508
 ```
 
 ![png](../assets/chapter-1/1-example/1-example_23_3.png)
