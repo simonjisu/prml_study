@@ -1,7 +1,6 @@
-Introduction
-===
+머신러닝이 무엇이닞ㄹ 
 
-사람이 쓴 숫자의 이미지로 어떤 숫자인지를 판별하는 "손글씨 인식" 알고리즘을 작성한다고 생각해보면
+사람의 손글씨가 담긴 숫자의 이미지로 어떤 숫자인지를 판별하는 "손글씨 인식" 알고리즘을 작성한다고 생각해볼 수 있다.
 
 <img src="https://drive.google.com/uc?id=1k1sBi-RHpD_i_vHnzZrmzS3losmIeIfz">
 

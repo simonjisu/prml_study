@@ -1,6 +1,3 @@
-Example: Polynomial Cureve Fitting
-===
-
 제일 간단한 회귀문제를 예시로 든다.
 
 * 실수 입력변수 $$x$$ 로 실수 타겟변수 $$t$$ 를 예측하는 문제다.
