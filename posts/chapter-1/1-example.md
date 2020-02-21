@@ -1,17 +1,17 @@
 제일 간단한 회귀문제를 예시로 든다.
 
-* 실수 입력변수 $$x$$ 로 실수 타겟변수 $$t$$ 를 예측하는 문제다.
+* 실수 입력변수 $x$ 로 실수 타겟변수 $t$ 를 예측하는 문제다.
 
 # 훈련 데이터 살펴보기
 
-가령 10개의 훈련 데이터를 만들어보는데, 입력변수 $$x$$는 0과 1사이의 실수, 타겟변수 $$t$$ 는 $$\sin(2\pi x)$$ 에서 가우시안 분포에서 샘플링한 작은 노이즈(Noise) 를 줘서 약간의 변형을 가한다.
+가령 10개의 훈련 데이터를 만들어보는데, 입력변수 $x$는 0과 1사이의 실수, 타겟변수 $t$ 는 $\sin(2\pi x)$ 에서 가우시안 분포에서 샘플링한 작은 노이즈(Noise) 를 줘서 약간의 변형을 가한다.
 
-우리가 알고 싶어하는 $$\sin(2\pi x)$$ 함수는 세상의 진리 혹은 원리라고 생각할 수 있다. 하지만 실제 세상의 개별 데이터는 우리가 알 수 없는 어떤 요소들로 인해서 진실을 알 수 없게 되어있는 경우가 많다. 이를 노이즈가 들어간 데이터로 표현한 것이다. 즉, 쉽게 말하면 입력데이터 $$x$$ 는 함수를 통과해서 정답이 $$t=\sin(2\pi x)$$ 가 나와야하는데, 관측되는 데이터는 항상 어떤 요소에 의해서 조금씩 달라져서 관측된다는 말이다. 
+우리가 알고 싶어하는 $\sin(2\pi x)$ 함수는 세상의 진리 혹은 원리라고 생각할 수 있다. 하지만 실제 세상의 개별 데이터는 우리가 알 수 없는 어떤 요소들로 인해서 진실을 알 수 없게 되어있는 경우가 많다. 이를 노이즈가 들어간 데이터로 표현한 것이다. 즉, 쉽게 말하면 입력데이터 $x$ 는 함수를 통과해서 정답이 $t=\sin(2\pi x)$ 가 나와야하는데, 관측되는 데이터는 항상 어떤 요소에 의해서 조금씩 달라져서 관측된다는 말이다. 
 
-$$\begin{aligned} \textbf{x} & \equiv (x_1, \cdots, x_i, \cdots, x_N)^T, \quad x_i \in [0, 1] \\
-\textbf{t} & \equiv (t_1, \cdots, t_i, \cdots, t_N)^T, \quad t_i = \sin(2\pi x_i) + N(\mu, \sigma^2)\end{aligned}$$
+$\begin{aligned} \textbf{x} & \equiv (x_1, \cdots, x_i, \cdots, x_N)^T, \quad x_i \in [0, 1] \\
+\textbf{t} & \equiv (t_1, \cdots, t_i, \cdots, t_N)^T, \quad t_i = \sin(2\pi x_i) + N(\mu, \sigma^2)\end{aligned}$
 
-이제 우리의 목표는 관측된 훈련데이터들을 사용해서 새로운 입력변수 $$\hat{x}$$ 가 들어왔을 때 타겟변수$$\hat{t}$$ 를 예측하는 것이다.
+이제 우리의 목표는 관측된 훈련데이터들을 사용해서 새로운 입력변수 $\hat{x}$ 가 들어왔을 때 타겟변수$\hat{t}$ 를 예측하는 것이다.
 
 ```python
 import numpy as np
@@ -40,17 +40,17 @@ plt.show()
 
 # 다항 함수
 
-불확실성을 해소하기위해 위 두 가지 이론을 사용할 수 있지만, 여기서는 우선 **다항 함수(polynomial fucntion)** 를 통해 접근해볼 수 있다. $$M$$ 은 다항 함수의 **차수(degree)** 라고 하며, 그 식에서 최고의 차수를 가르킨다. 잘 살펴보면, 다항 함수($$y(x, \mathbf{w})$$)은 계수 $$\mathbf{w}$$ 와 연관된 **선형 회귀** 이다. 
+불확실성을 해소하기위해 위 두 가지 이론을 사용할 수 있지만, 여기서는 우선 **다항 함수(polynomial fucntion)** 를 통해 접근해볼 수 있다. $M$ 은 다항 함수의 **차수(degree)** 라고 하며, 그 식에서 최고의 차수를 가르킨다. 잘 살펴보면, 다항 함수($y(x, \mathbf{w})$)은 계수 $\mathbf{w}$ 와 연관된 **선형 회귀** 이다. 
 
-$$\tag{1} y(x, \mathbf{w}) = w_0 + w_1 x + w_2 x^2 + \cdots + w_M x^M = \sum_{j=0}^{M} w_j x^j$$
+$\tag{1} y(x, \mathbf{w}) = w_0 + w_1 x + w_2 x^2 + \cdots + w_M x^M = \sum_{j=0}^{M} w_j x^j$
 
-다시 잠깐 정리해서, 지금 하는 것은 세상의 진리($$\sin(2\pi x)$$) 를 모른다고 생각하고 다항 함수를 통해서 이것이 관측된 데이터의 진리가 아닐까 하고 예측해보는 것이라고 할 수 있다. 이 선형 회귀의 계수 $$\mathbf{w}$$ 는 관측된 훈련데이터로 부터 도출할 것이다. 그러면 어떻게 도출할 것인가? 
+다시 잠깐 정리해서, 지금 하는 것은 세상의 진리($\sin(2\pi x)$) 를 모른다고 생각하고 다항 함수를 통해서 이것이 관측된 데이터의 진리가 아닐까 하고 예측해보는 것이라고 할 수 있다. 이 선형 회귀의 계수 $\mathbf{w}$ 는 관측된 훈련데이터로 부터 도출할 것이다. 그러면 어떻게 도출할 것인가? 
 
 우리는 다항 함수를 통해 예측된 타겟과 실제 타겟변수의 차이를 구해, 얼만큼 틀렸는지(misfit)를 측정해볼 수 있다. 이를 **목적 함수(object function) / 손실 함수(error/loss function)** 라고 하며, 이 손실함수를 줄임으로써 계수를 구하는 목적을 달성할 수 있다.
 
 여기서는 보통 많이 쓰이는 목적함수로 **MSE(Mean Square Error)** 를 사용한다.
 
-$$\tag{2} E(\mathbf{w}) = \frac{1}{2} \sum_{n=1}^{N} (y(x_n, \mathbf{w}) - t_n)^2$$
+$\tag{2} E(\mathbf{w}) = \frac{1}{2} \sum_{n=1}^{N} (y(x_n, \mathbf{w}) - t_n)^2$
 
 ```python
 def error_function(pred, target):
@@ -60,13 +60,13 @@ def error_function(pred, target):
 
 # Python Code Solution for Polynomial
 
-우선 $$(N, M+1)$$ 크기의 **방데르몽드 행렬(Vandermode matrix)** 를 정의하고 이를 $$V$$ 라고 한다. 위에서도 말했듯이 $$M$$ 은 다항 함수의 차수(degree) 다.
+우선 $(N, M+1)$ 크기의 **방데르몽드 행렬(Vandermode matrix)** 를 정의하고 이를 $V$ 라고 한다. 위에서도 말했듯이 $M$ 은 다항 함수의 차수(degree) 다.
 
-$$V = \begin{bmatrix} 1 & x_1 & x_1^2 & \cdots & x_1^M  \\
+$V = \begin{bmatrix} 1 & x_1 & x_1^2 & \cdots & x_1^M  \\
 1 & x_2 & x_2^2 & \cdots & x_2^M \\
 \vdots & \vdots & \vdots & \ddots & \vdots \\
 1 & x_N & x_N^2 & \cdots & x_N^M
-\end{bmatrix}$$
+\end{bmatrix}$
 
 ```python
 def vandermonde_matrix(x, m):
@@ -96,9 +96,9 @@ print(V.round(3))
 
 이제 행렬로 다항함수 식 **(1)** 을 표현할 수 있게 되는데, 아래와 같다.
 
-$$y = V \cdot w = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_N \end{bmatrix} = 
+$y = V \cdot w = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_N \end{bmatrix} = 
 \begin{bmatrix} w_0 + w_1x_1 + w_2x_1^2 + \cdots + w_Mx_1^M \\ w_0 + w_1x_2 + w_2x_2^2 + \cdots + w_Mx_2^M \\ \vdots \\ 
-w_0 + w_1x_N + w_2x_N^2 + \cdots + w_Mx_N^M \end{bmatrix}$$
+w_0 + w_1x_N + w_2x_N^2 + \cdots + w_Mx_N^M \end{bmatrix}$
 
 ```python
 def polynomial_function(x, w, m):
@@ -119,15 +119,15 @@ print(t_hat.round(3))
 # [-0.03  -0.208  0.016 -0.2   -0.177 -0.162 -0.204 -0.134 -0.14   0.197]
 ```
 
-그리고 위에서 정의한 손실 함수를 다시 행렬에 맞게 바꿔보고, 조금 더 간편하게 하기 위해서 **잔차(residual)** $$r=y-V\cdot w$$ 를 정의해서 다시 바꿔본다.
+그리고 위에서 정의한 손실 함수를 다시 행렬에 맞게 바꿔보고, 조금 더 간편하게 하기 위해서 **잔차(residual)** $r=y-V\cdot w$ 를 정의해서 다시 바꿔본다.
 
-$$
+$
 E(\mathbf{w}) = \frac{1}{2} \sum_{n=1}^{N} (y(x_n, \mathbf{w}) - t_n)^2 = \frac{1}{2} \Vert y - V \cdot w \Vert^2 = \frac{1}{2} \Vert r \Vert^2
-$$
+$
 
-우리 목적은 손실 함수을 최대한 줄여서, 즉 최소값을 구해서 계수를 구할 것이다. $$\hat{w} = {\arg \min}_{w} E(w)$$. 또한, 손실 함수는 2차 함수이기 때문에 1차 미분이 0일 때, 유일한 해가 존재한다. 따라서 미분의 연쇄법칙(chain rule)으로 아래 처럼 미분을 진행 할 수 있다.
+우리 목적은 손실 함수을 최대한 줄여서, 즉 최소값을 구해서 계수를 구할 것이다. $\hat{w} = {\arg \min}_{w} E(w)$. 또한, 손실 함수는 2차 함수이기 때문에 1차 미분이 0일 때, 유일한 해가 존재한다. 따라서 미분의 연쇄법칙(chain rule)으로 아래 처럼 미분을 진행 할 수 있다.
 
-$$\begin{aligned} \frac{\partial E}{\partial w} &= \begin{bmatrix} \frac{\partial E}{\partial w_0} \\ \frac{\partial E}{\partial w_1} \\ \vdots \\ \frac{\partial E}{\partial w_M} \end{bmatrix} \\ \\
+$\begin{aligned} \frac{\partial E}{\partial w} &= \begin{bmatrix} \frac{\partial E}{\partial w_0} \\ \frac{\partial E}{\partial w_1} \\ \vdots \\ \frac{\partial E}{\partial w_M} \end{bmatrix} \\ \\
 &= \begin{bmatrix} 
 \frac{\partial E}{\partial r_1}\frac{\partial r_1}{\partial w_0} + \frac{\partial E}{\partial r_2}\frac{\partial r_2}{\partial w_0} + \cdots +\frac{\partial E}{\partial r_N}\frac{\partial r_N}{\partial w_0} \\ 
 \frac{\partial E}{\partial r_1}\frac{\partial r_1}{\partial w_1} + \frac{\partial E}{\partial r_2}\frac{\partial r_2}{\partial w_1} + \cdots +\frac{\partial E}{\partial r_N}\frac{\partial r_N}{\partial w_1} \\
@@ -143,13 +143,13 @@ $$\begin{aligned} \frac{\partial E}{\partial w} &= \begin{bmatrix} \frac{\partia
 \begin{bmatrix} \frac{\partial E}{\partial r_1} \\ \frac{\partial E}{\partial r_2} \\ \vdots \\ \frac{\partial E}{\partial r_N} \end{bmatrix} \qquad \cdots (3)\\ \\
 &= \frac{\partial r}{\partial w} \cdot \frac{\partial E}{\partial r} \\ \\
 &= V^T \cdot (y - V\cdot w) = 0
-\end{aligned}$$
+\end{aligned}$
 
 **(3)** 번의 식에서 앞쪽에 행렬을 미분해 보면 방데르몽드의 전치 행렬임을 알 수 있다. 
 
 최종적으로 해를 구할 수 있는데, 아래와 같다.
 
-$$w = (V^TV)^{-1}V^Ty$$
+$w = (V^TV)^{-1}V^Ty$
 
 ```python
 def poly_solution(x, t, m):
@@ -178,9 +178,9 @@ print(P.polyfit(x, t, M).round(3))
 
 # 최적의 차수(degree) 찾기
 
-최적의 계수를 찾는 문제도 해결되었으니, 이제 우리에게 남은 문제는 최적의 차수를 찾는 것이다. 다항 함수의 차수는 우리가 마음대로 정할 수 있다. 하지만 진리($$\sin(2\pi x)$$)에 가장 가깝게 만드는 최적의 계수는 무엇인가? 이를 찾는 과정을 **모델 비교(model comparison)** 혹은 **모델 선택(model selection)** 이라고 한다. 또한 차수 $$M$$ 처럼사람이 임의적으로 조절할 수 있는 변수를 **하이퍼파라미터(hyperparameter)** 라고 한다.
+최적의 계수를 찾는 문제도 해결되었으니, 이제 우리에게 남은 문제는 최적의 차수를 찾는 것이다. 다항 함수의 차수는 우리가 마음대로 정할 수 있다. 하지만 진리($\sin(2\pi x)$)에 가장 가깝게 만드는 최적의 계수는 무엇인가? 이를 찾는 과정을 **모델 비교(model comparison)** 혹은 **모델 선택(model selection)** 이라고 한다. 또한 차수 $M$ 처럼사람이 임의적으로 조절할 수 있는 변수를 **하이퍼파라미터(hyperparameter)** 라고 한다.
 
-이전 장([Introduction](https://simonjisu.github.io/prml_study/posts/chapter-1/intro.html))에서 우리는 일반화(generalization) 이 패턴인식의 주요 목적이라고 했다. 좋은 일반화란 얼만큼 진리에 가까운 표현력을 보이는가로 측정할 수 있다. 즉, 여기서는 새로운 데이터가 들어왔을 때, 얼만큼 $$\sin(2\pi x)$$ 에 접근한 가? 를 보면 된다. 그렇다면 이를 어떻게 측정할 것인가?
+이전 장([Introduction](https://simonjisu.github.io/prml_study/posts/chapter-1/intro.html))에서 우리는 일반화(generalization) 이 패턴인식의 주요 목적이라고 했다. 좋은 일반화란 얼만큼 진리에 가까운 표현력을 보이는가로 측정할 수 있다. 즉, 여기서는 새로운 데이터가 들어왔을 때, 얼만큼 $\sin(2\pi x)$ 에 접근한 가? 를 보면 된다. 그렇다면 이를 어떻게 측정할 것인가?
 
 측정을 위해서 100개의 데이터를 추가로 샘플링해서 새로운 데이터를 만들어 테스트 세트로 구성한다. 
 
@@ -197,16 +197,16 @@ plt.show()
 ```
 <img src="https://drive.google.com/uc?id=1a-lc7wOqcOlBMtecS0w2ZaIXoFrZSUdq">
 
-그리고 매 번 차수($$M$$)를 선택할 때 마다, 훈련 세트에서 최적화된 계수를 구하고, 이 계수를 사용하여 손실 값의 잔차를 훈련 세트와 테스트 세트에 각각 적용해서 구한다. 그 방법 중에 하나는 RMS error(root-mean-sqruare error) 라는 방법으로 구하는데, 식은 아래와 같다. 
+그리고 매 번 차수($M$)를 선택할 때 마다, 훈련 세트에서 최적화된 계수를 구하고, 이 계수를 사용하여 손실 값의 잔차를 훈련 세트와 테스트 세트에 각각 적용해서 구한다. 그 방법 중에 하나는 RMS error(root-mean-sqruare error) 라는 방법으로 구하는데, 식은 아래와 같다. 
 
-$$E_{RMS} = \sqrt{2E(\mathbf{w}^{*})/N}$$
+$E_{RMS} = \sqrt{2E(\mathbf{w}^{*})/N}$
 
 ```python
 def root_mean_square_error(error, n_samples):
     return np.sqrt(2*error/n_samples)
 ```
 
-$$\mathbf{w}^{*}$$ 는 $$M$$ 차수에서 최적의 계수, $$N$$ 은 데이터의 갯수다. $$N$$ 을 나눠준 이유는 비교가능도록 크기가 다른 데이터 셋을 동등한 크기로 스케일링 한 것이다. 손실함수가 제곱을 취했기 때문에 예측한 변수와 타겟변수의 차이가 클수록 값이 더 커지는 현상이 있는데, 루트 연산을 취해줌으로써, 타겟 변수와 같은 크기의 스케일로 다시 맞춰진다.
+$\mathbf{w}^{*}$ 는 $M$ 차수에서 최적의 계수, $N$ 은 데이터의 갯수다. $N$ 을 나눠준 이유는 비교가능도록 크기가 다른 데이터 셋을 동등한 크기로 스케일링 한 것이다. 손실함수가 제곱을 취했기 때문에 예측한 변수와 타겟변수의 차이가 클수록 값이 더 커지는 현상이 있는데, 루트 연산을 취해줌으로써, 타겟 변수와 같은 크기의 스케일로 다시 맞춰진다.
 
 # 오버피팅(over-fitting)
 
@@ -274,7 +274,7 @@ for m in range(10):
 
 <img src="https://drive.google.com/uc?id=1ll2uARbNT4zXlr9q9uco3bYae-aGsJJR">
 
-우리의 진리인 $$\sin(2\pi x)$$ 와 가장 가까운 곡선은 $$M=3$$ 일때의 곡선이다. 다른 차수에서는 좋지 않은 표현력(진리 함수와 모양이 비슷하지 않음)을 가지고 있는데, 특히 $$M=9$$ 일 때를 살펴보면 우리의 훈련데이터를 관통하는 아주 정확한 일치성을 보인다. 하지만 곡선을 그려보면 천장과 밑바닥을 뚫는 경우가 발생하는데, 아주 나쁜 표현력을 가지고 있다는 뜻이다. 보통 이러한 현상을 **과대적합(over-fitting)** 이라고 한다. $$M=0$$ 혹은 $$M=1$$ 의 RMS error 가 상대적으로 엄청 크진 않지만, 해당 함수로는 $$\sin$$ 함수를 표현해내기에는 역부족해 보인다. 이러한 현상을 **과소적합(under-fitting)** 이라고 한다.
+우리의 진리인 $\sin(2\pi x)$ 와 가장 가까운 곡선은 $M=3$ 일때의 곡선이다. 다른 차수에서는 좋지 않은 표현력(진리 함수와 모양이 비슷하지 않음)을 가지고 있는데, 특히 $M=9$ 일 때를 살펴보면 우리의 훈련데이터를 관통하는 아주 정확한 일치성을 보인다. 하지만 곡선을 그려보면 천장과 밑바닥을 뚫는 경우가 발생하는데, 아주 나쁜 표현력을 가지고 있다는 뜻이다. 보통 이러한 현상을 **과대적합(over-fitting)** 이라고 한다. $M=0$ 혹은 $M=1$ 의 RMS error 가 상대적으로 엄청 크진 않지만, 해당 함수로는 $\sin$ 함수를 표현해내기에는 역부족해 보인다. 이러한 현상을 **과소적합(under-fitting)** 이라고 한다.
 
 차수의 선택에 따른 RMS error 을 그려보면 아래와 같다. 
 
@@ -295,7 +295,7 @@ plt.show()
 
 훈련 세트와 테스트 세트 간의 RMS error 차이가 처음에는 줄어들다가 나중에는 커지는 것을 알 수 있다. 즉 최적의 차수는 훈련 세트와 테스트 세트 간의 측정척도가 작으며, 테스트 세트에서 어느정도 낮은 측정 척도를 가지고 있어야 한다는 것을 알 수 있다.
 
-이제 각각의 계수를 출력해본다. 차수 $$M$$ 가 커질 수록 계수가 커지는 것을 확인 할 수 있다.
+이제 각각의 계수를 출력해본다. 차수 $M$ 가 커질 수록 계수가 커지는 것을 확인 할 수 있다.
 
 ```python
 np.set_printoptions(precision=3)
@@ -354,16 +354,16 @@ plt.show()
 
 위에 방법을 배우기 전에 우선 **정규화(regularization)** 이라는 다른 방법을 알아본다. 정규화는 계수가 더 커지지 않도록 손실 함수에 패널티(penalty)를 더하는 방법이다. **(2)** 번식을 아래와 같이 고쳐본다.
 
-$$\tag{4} E(\mathbf{w}) = \dfrac{1}{2} \Vert y - V \cdot w \Vert^2 + \frac{\lambda}{2} \Vert \mathbf{w} \Vert^2$$
+$\tag{4} E(\mathbf{w}) = \dfrac{1}{2} \Vert y - V \cdot w \Vert^2 + \frac{\lambda}{2} \Vert \mathbf{w} \Vert^2$
 
-여기서 $$\Vert \mathbf{w} \Vert^2 \equiv \mathbf{w}^T\mathbf{w}=w_0^2 + w_1^2 + \cdots w_M^2$$ 다. **정규화 계수** $$\lambda$$ 는 추가적으로 제약조건의 비중을 조절하는 하이퍼파라미터다. 
+여기서 $\Vert \mathbf{w} \Vert^2 \equiv \mathbf{w}^T\mathbf{w}=w_0^2 + w_1^2 + \cdots w_M^2$ 다. **정규화 계수** $\lambda$ 는 추가적으로 제약조건의 비중을 조절하는 하이퍼파라미터다. 
 
 여러가지 정규화 방법이 있으나, 여기서는 제일 간단한 계수의 제곱을 손실함수에 더해주는 형식으로 패널티를 더했다. **(4)** 식의 해를 구하는 것은 간단하다. 
 
-$$\begin{aligned}
+$\begin{aligned}
 \frac{\partial E(w)}{\partial w} &= V^Ty-V^TV\cdot w+\lambda w = 0 \\
 w &= (V^TV- \lambda I_{(M+1)})^{-1}V^Ty
-\end{aligned}$$
+\end{aligned}$
 
 ```python
 def ridge_solution(x, t, m, alpha=0):
@@ -371,7 +371,7 @@ def ridge_solution(x, t, m, alpha=0):
     return np.linalg.inv(np.dot(V.T, V) - alpha * np.eye(m+1)).dot(V.T).dot(t)
 ```
 
-정규화 계수의 효과는 아래의 그림을 보면 극명하다. 정규화 계수가 클수록 계수 $$w$$ 를 강력하게 규제하며 더이상 커지지 못하게 한다. 또한, 그림에서 볼 수 있듯이 모델의 복잡성을 줄여주고 과대적합을 막아준다.
+정규화 계수의 효과는 아래의 그림을 보면 극명하다. 정규화 계수가 클수록 계수 $w$ 를 강력하게 규제하며 더이상 커지지 못하게 한다. 또한, 그림에서 볼 수 있듯이 모델의 복잡성을 줄여주고 과대적합을 막아준다.
 
 ```python
 M=9

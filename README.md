@@ -5,4 +5,5 @@ PRML Study
 
 * 원서 다운로드: [link](https://aka.ms/prml) 
 * 작성자: 장지수([simonjisu](https://github.com/simonjisu))
-* GitBook: [https://simonjisu.gitbook.io/prml/](https://simonjisu.gitbook.io/prml/)
+* 블로그: [https://simonjisu.github.io](https://simonjisu.github.io)
+* GitBook: [https://soo.gitbook.io/prml/](https://soo.gitbook.io/prml/)
