@@ -5,10 +5,4 @@ PRML Study
 
 * 원서 다운로드: [link](https://aka.ms/prml) 
 * 작성자: 장지수([simonjisu](https://github.com/simonjisu))
-* GitBook v2: [https://simonjisu.gitbook.io/prml/](https://simonjisu.gitbook.io/prml/)
-* GitBook v1(Not Recommand): [https://simonjisu.github.io/prml_study](https://simonjisu.github.io/prml_study)
-# 목차
-
-* [Chapter-1 Introduction](posts/chapter-1/0-intro.md)
-    * [1.1 Example: Polynomial Curve Fitting](posts/chapter-1/1-example.md)
-    * [1.2 Probability Theory](posts/chapter-1/2-probability.md)
+* GitBook: [https://simonjisu.gitbook.io/prml/](https://simonjisu.gitbook.io/prml/)
