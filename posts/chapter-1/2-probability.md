@@ -9,14 +9,17 @@
 집합론(set theory)은 추상적 대상들의 모임인 집합을 연구하는 수학 이론이다. 기본적인 개념은 위키링크를 달아 두었다.
 
 * [집합(set)](https://ko.wikipedia.org/wiki/집합): 특정 조건에 맞는 원소들의 모임
-* [원소(element)](https://ko.wikipedia.org/wiki/원소_(수학) ): 집합을 이루는 개체, 원소 $$a$$가 집합 $$A$$에 속할 경우 $$a \in A$$라고 표기한다.
+* [원소(element)](https://ko.wikipedia.org/wiki/원소_\(수학\) ): 집합을 이루는 개체, 원소 $$a$$가 집합 $$A$$에 속할 경우 $$a \in A$$라고 표기한다.
 * [부분 집합(subset)](https://ko.wikipedia.org/wiki/부분집합): 집합 A의 모든 원소가 다른 집합 B에도 속하는 관계일 경우, A는 B의 "부분 집합"이라고 한다.
 * [전체집합(universal set)](https://ko.wikipedia.org/wiki/전체집합): 모든 대상(자기 자신도 포함)을 원소로 포함하는 집합
-* [집합의 연산(set operations)](https://en.wikipedia.org/wiki/Set_(mathematics)#Basic_operations) 
+* [집합의 연산(set operations)](https://en.wikipedia.org/wiki/Set_\(mathematics\)#Basic_operations) 
     * [합집합(Unions)](https://ko.wikipedia.org/wiki/합집합)
     * [교집합(Intersections)](https://ko.wikipedia.org/wiki/교집합)
     * [여집합(Complements)](https://ko.wikipedia.org/wiki/여집합)
-    * [곱집합(product set, Cartesian product)](https://ko.wikipedia.org/wiki/곱집합): 각 집합의 원소를 각 선분으로 하는 튜플(tuple)들의 집합, $$ A \times B = \{ (a, b): \mathtt{a} \in A, \mathtt{b} \in B\}$$
+    * [곱집합(product set, Cartesian product)](https://ko.wikipedia.org/wiki/곱집합): 각 집합의 원소를 각 선분으로 하는 튜플(tuple)들의 집합 
+        
+        $$ A \times B = \{ (a, b): \mathtt{a} \in A, \mathtt{b} \in B\}$$
+        
         * 예시: $$A = \{ 1, 2 \}, B = \{ 3, 4, 5 \} \rightarrow A \times B = \{ (1,3), (1,4), (1,5), (2,3), (2,4), (2,5) \}$$
 * [서로소 집합(disjoint set)](https://ko.wikipedia.org/wiki/서로소_집합): 공통 원소가 없는 두 집합, $$A \cap B = \emptyset $$
 * [집합의 분할(partition of a set)](https://ko.wikipedia.org/wiki/집합의_분할): 집합의 원소들을 비공 부분 집합들에게 나눠주어, 모든 원소가 각자 정확히 하나의 부분 집합에 속하게끔 하는 것
@@ -29,13 +32,15 @@
 
 ## Function
 
-<img src="/figs/chapter-2/1.2.1-function.png" desc="1.2.1" width=75% />
+![1.2.1](/figs/chapter-2/1.2.1-function.png)
+
+<img src="/figs/chapter-2/1.2.1-function.png" desc="1.2.1" width="75%" >
 
 * [함수/사상(function/mapping)](https://ko.wikipedia.org/wiki/함수): 첫 번째 집합의 임의의 한 원소를 두 번째 집합의 오직 한 원소에 대응시키는 이항 관계이다. 입력이 되는 집합 $$U$$를 정의역(domain), 출력으로 대응되는 집합 $$V$$를 공역(codomain)이라고 한다. 
     
     $$f: \underset{domain}{U} \rightarrow \underset{codomain}{V}$$
 
-* [상(image)](https://ko.wikipedia.org/wiki/상_(수학)): domain의 원소(혹은 부분 집합)가 대응하는 codomain의 원소(혹은 집합) 
+* [상(image)](https://ko.wikipedia.org/wiki/상_\(수학\)): domain의 원소(혹은 부분 집합)가 대응하는 codomain의 원소(혹은 집합) 
     
     $$f(x) \in V, x \in U \quad \text{or} \quad f(A) = \{ f(x) \vert x \in A \} \sube V, A \sube U $$
 
