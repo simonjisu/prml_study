@@ -40,11 +40,11 @@
 
 * [상(image)](https://ko.wikipedia.org/wiki/상_\(수학\)): domain의 원소(혹은 부분 집합)가 대응하는 codomain의 원소(혹은 집합) 
     
-    $$f(x) \in V, x \in U \quad \text{or} \quad f(A) = \{ f(x) \vert x \in A \} \sube V, A \sube U $$
+    $$f(x) \in V, x \in U \quad \text{or} \quad f(A) = \{ f(x) \vert x \in A \} \subseteq V, A \subseteq U $$
 
     반대로 codomain의 원소에 대응하는 domain의 원소를 역상(inverse image)이라고 한다(원소의 역상은 부분 집합이라는 것을 주의).
 
-    $$f^{-1}(y) = \{ x \in U \vert f(x) \in V \} \sube V \quad \text{or} \quad f^{-1}(B) = \{ x \vert f(x) \in B \} \sube U, B \sube V$$
+    $$f^{-1}(y) = \{ x \in U \vert f(x) \in V \} \subseteq V \quad \text{or} \quad f^{-1}(B) = \{ x \vert f(x) \in B \} \subseteq U, B \subseteq V$$
 * [치역(range)](https://ko.wikipedia.org/wiki/치역): 함수의 모든 출력값의 집합, 치역은 공역(codomain)의 부분 집합이다.
 
 ![1.2.2](/figs/chapter-2/1.2.2-invertible.png)
