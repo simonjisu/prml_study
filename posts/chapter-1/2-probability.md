@@ -34,8 +34,6 @@
 
 ![1.2.1](/figs/chapter-2/1.2.1-function.png)
 
-<img src="/figs/chapter-2/1.2.1-function.png" desc="1.2.1" width="75%" >
-
 * [함수/사상(function/mapping)](https://ko.wikipedia.org/wiki/함수): 첫 번째 집합의 임의의 한 원소를 두 번째 집합의 오직 한 원소에 대응시키는 이항 관계이다. 입력이 되는 집합 $$U$$를 정의역(domain), 출력으로 대응되는 집합 $$V$$를 공역(codomain)이라고 한다. 
     
     $$f: \underset{domain}{U} \rightarrow \underset{codomain}{V}$$
