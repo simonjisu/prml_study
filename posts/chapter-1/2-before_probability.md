@@ -60,10 +60,11 @@
 기본적으로 전체집합(universial set) $$U$$가 주어졌을 때, 측도(measure)는 $$U$$의 부분집합(subset)에 비음수인 실수를 할당한다. 우선 명확히 measure를 정의하기 위해서 필요한 것들을 정의해본다.
 
 * [set function](https://en.wikipedia.org/wiki/Set_function): 집합(set)에 대해 어떤 숫자를 부여하는 함수(ex, cardinality, length, area), 즉 입력을 집합, 출력은 숫자가 되는 함수
-* [$$\sigma-\text{field} \ \mathcal{B}$$](https://en.wikipedia.org/wiki/%CE%A3-algebra): 다음과 같은 조건을 만족하는 전체집합 $$U$$의 부분 집합 모음$$\mathcal{B}$$를 $$\sigma-\text{field}$$ 라고 한다($$\sigma$$-algebra와 같은 말). 이는 measure를 부여할 수 있는 최소 단위가 된다. 만약 어떤 원소가 $$\sigma-\text{field}$$에 존재하지 않는다면, 그 원소는 측정할 수 없다.
+* [$$\sigma-\text{field} \ \mathcal{B}$$](https://en.wikipedia.org/wiki/%CE%A3-algebra): 다음과 같은 조건을 만족하는 전체집합 $$U$$의 부분 집합 모음$$\mathcal{B}$$를 $$\sigma-\text{field}$$ 라고 한다($$\sigma-\text{algebra}$$와 같은 말). 
     1. $$\emptyset \in \mathcal{B}$$, empty set is included
     2. $$B \in \mathcal{B} \Rightarrow B^{c} \in \mathcal{B}$$, closed under set complement
     3. $$B_i \in \mathcal{B} \Rightarrow \bigcup_{i=1}^{\infty}B_i \in \mathcal{B}$$, closed under countable union
+* $$\sigma-\text{field}$$는 measure를 부여할 수 있는 최소 단위가 된다. 만약 어떤 원소가 $$\sigma-\text{field}$$에 존재하지 않는다면, 그 원소는 측정할 수 없다.
 * $$\sigma-\text{field}$$ 특성
     1. $$U \in \mathcal{B}$$
     2. $$B_i \in \mathcal{B} \Rightarrow \bigcap_{i=1}^{\infty}B_i \in \mathcal{B}$$, closed under countable intersection
