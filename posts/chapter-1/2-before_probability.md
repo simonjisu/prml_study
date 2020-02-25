@@ -74,7 +74,7 @@
 
 [측도(measure)](https://en.wikipedia.org/wiki/Measure_\(mathematics\))를 정의하기 위한 준비는 다 되었다. 정의를 하면 다음과 같다.
     
-* measure $$\mu$$ 는 가측 공간(measureable space)-$$(U, \mathcal{B})$$에서 정의된 set function, $$\mu: \mathcal{B}\rightarrow [0, \infty] s.t. $$ 이다.
+* measure $$\mu$$ 는 가측 공간(measureable space)-$$(U, \mathcal{B})$$에서 정의된 set function, $$\mu: \mathcal{B}\rightarrow [0, \infty]$$ 이다.
     1. $$\mu(\emptyset) = 0$$
     2. For disjoint $$B_i$$ and $$ B_j \Rightarrow \mu(\bigcup_{i=1}^{\infty}B_i) = \sum_{i=1}^{\infty} \mu(B_i)$$, countable addivitity 
 * 확률은 단지 전체집합에 대한 측도의 합이 1인 measure 다($$\mu(U)=1$$).
