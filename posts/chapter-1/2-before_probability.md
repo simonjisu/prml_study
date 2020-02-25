@@ -57,28 +57,28 @@
 
 [측도(measure)](https://ko.wikipedia.org/wiki/측도) 이란 특정 부분 집합에 대해 일종의 "크기"를 부여하며, 그 크기를 가산개로 쪼개어 게산할 수 있게 하는 함수다. 측도가 부여된 집합을 측도 공간(measure space)라고 하며, 이를 연구하는 수학 분야를 측도론(measure theory)라고 한다. 
 
-기본적으로 전체집합(universial set) $$U$$가 주어졌을 때, 측도(measure)는 $$U$$의 부분집합(subset)에 비음수인 실수를 할당한다. 
+기본적으로 전체집합(universial set) $$U$$가 주어졌을 때, 측도(measure)는 $$U$$의 부분집합(subset)에 비음수인 실수를 할당한다. 우선 명확히 measure를 정의하기 위해서 필요한 것들을 정의해본다.
 
 * [set function](https://en.wikipedia.org/wiki/Set_function): 집합(set)에 대해 어떤 숫자를 부여하는 함수(ex, cardinality, length, area), 즉 입력을 집합, 출력은 숫자가 되는 함수
-* [$$\sigma$$-field $$\mathcal{B}$$](https://en.wikipedia.org/wiki/%CE%A3-algebra): 다음과 같은 조건을 만족하는 전체집합 $$U$$의 부분 집합 모음$$\mathcal{B}$$를 $$\sigma$$-field 라고 한다($$\sigma$$-algebra와 같은 말). 이는 measure를 부여할 수 있는 최소 단위가 된다. 만약 어떤 원소가 $$\sigma$$-field에 존재하지 않는다면, 그 원소는 측정할 수 없다.
+* [$$\sigma-\text{field} \ \mathcal{B}$$](https://en.wikipedia.org/wiki/%CE%A3-algebra): 다음과 같은 조건을 만족하는 전체집합 $$U$$의 부분 집합 모음$$\mathcal{B}$$를 $$\sigma-\text{field}$$ 라고 한다($$\sigma$$-algebra와 같은 말). 이는 measure를 부여할 수 있는 최소 단위가 된다. 만약 어떤 원소가 $$\sigma-\text{field}$$에 존재하지 않는다면, 그 원소는 측정할 수 없다.
     1. $$\emptyset \in \mathcal{B}$$, empty set is included
     2. $$B \in \mathcal{B} \Rightarrow B^{c} \in \mathcal{B}$$, closed under set complement
     3. $$B_i \in \mathcal{B} \Rightarrow \bigcup_{i=1}^{\infty}B_i \in \mathcal{B}$$, closed under countable union
-* $$\sigma$$-field 특성
+* $$\sigma-\text{field}$$ 특성
     1. $$U \in \mathcal{B}$$
     2. $$B_i \in \mathcal{B} \Rightarrow \bigcap_{i=1}^{\infty}B_i \in \mathcal{B}$$, closed under countable intersection
-    3. $$2^U$$, power set of U 는 가장 단위가 자잘자잘 하게 만든 $$\sigma$$-field
+    3. $$2^U$$, power set of U 는 가장 단위가 자잘자잘 하게 만든 $$\sigma-\text{field}$$
     4. $$\mathcal{B}$$ 는 유한하거나 비가산 둘 중 하나다, 가산 무한/가번부(countable infinite/denumerable)가 될 수 없다.
     5. $$\mathcal{B}, \mathcal{C} \text{ are } \sigma \text{-field} \Rightarrow \mathcal{B} \cap \mathcal{C} \text{ is } \sigma \text{-field, but } \mathcal{B} \cup \mathcal{C} \text{ is not}$$
-* [가측 공간(measurable space)](https://ko.wikipedia.org/wiki/가측_공간): 간단히 말해서, 어떤 집합 $$U$$가 있고 그 집합의 부분집합으로 만들어진 $$\sigma$$-field에 measure를 부여할 수 있는 공간 $$(U, \mathcal{B})$$
-* [측도(measure)](https://en.wikipedia.org/wiki/Measure_\(mathematics\))를 정의하기 위한 준비는 다 되었다. 정의를 하면 다음과 같다.
-    
-    measure $$\mu$$ 는 가측 공간(measureable space), $$(U, \mathcal{B})$$에서 정의된 set function, $$\mu: \mathcal{B}\rightarrow [0, \infty] s.t. $$ 이다.
+* [가측 공간(measurable space)](https://ko.wikipedia.org/wiki/가측_공간): 간단히 말해서, 어떤 집합 $$U$$가 있고 그 집합의 부분집합으로 만들어진 $$\sigma-\text{field}$$에 measure를 부여할 수 있는 공간 $$(U, \mathcal{B})$$
 
+[측도(measure)](https://en.wikipedia.org/wiki/Measure_\(mathematics\))를 정의하기 위한 준비는 다 되었다. 정의를 하면 다음과 같다.
+    
+* measure $$\mu$$ 는 가측 공간(measureable space)-$$(U, \mathcal{B})$$에서 정의된 set function, $$\mu: \mathcal{B}\rightarrow [0, \infty] s.t. $$ 이다.
     1. $$\mu(\emptyset) = 0$$
     2. For disjoint $$B_i$$ and $$ B_j \Rightarrow \mu(\bigcup_{i=1}^{\infty}B_i) = \sum_{i=1}^{\infty} \mu(B_i)$$, countable addivitity 
 * 확률은 단지 전체집합에 대한 측도의 합이 1인 measure 다($$\mu(U)=1$$).
-* 즉, 가측 공간(measurable space), $$(U, \mathcal{B})$$과 measure $$\mu$$가 하나의 measure space $$(U, \mathcal{B}, \mu)$$ 를 구성하게 된다.
+* 즉, 가측 공간(measurable space)-$$(U, \mathcal{B})$$과 measure $$\mu$$가 하나의 measure space $$(U, \mathcal{B}, \mu)$$ 를 구성하게 된다.
 
 ## Probability Theory
 
