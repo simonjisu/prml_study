@@ -53,5 +53,10 @@
 * [위로의 함수/전사 함수(onto/surjective)](https://ko.wikipedia.org/wiki/전사_함수): domain과 range가 일치하는 함수
 * one-to-one 조건과 onto 조건을 모두 만족하면 가역 함수(invertible function)라고 한다.
 
+## Measure Theory
+
+
+
+
 ## Probability
 
