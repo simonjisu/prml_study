@@ -3,7 +3,7 @@
 * [PRML study](README.md)
 * [Chapter-1 Introduction](posts/chapter-1/0-intro.md)
     * [1.1 Example: Polynomial Curve Fitting](posts/chapter-1/1-example.md)
-        * [Before Probability Theory](posts/chapter-1/2-before_probability.md)
+    * [1.2.0 Before Probability Theory](posts/chapter-1/2-before_probability.md)
     * [1.2 Probability Theory](posts/chapter-1/2-probability.md)
     * [1.3 Model Selection]()
     * [1.4 The Curse of dimensionality]()
