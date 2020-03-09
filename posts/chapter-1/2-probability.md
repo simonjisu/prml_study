@@ -58,8 +58,9 @@ joint_probability(0, 1, A)
 $$\tag{2} p(X=x_i) = \dfrac{c_{i}}{N}$$
 {% endtab %}
 
-{% tab title="Python" %}
+{% tabs title="Python" %}
 ```python
 # test
 ```
 {% endtab %}
+{% endtabs %}
