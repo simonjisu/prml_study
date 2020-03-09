@@ -8,7 +8,7 @@
     * [1.4 The Curse of dimensionality]()
     * [1.5 Decision Theory]()
     * [1.6 Information Theory]()
-    * [a1 From Set Theory to Probability Theory](posts/chapter-1/a1-edwithchoi.md)
+    * [a.1 From Set Theory to Probability Theory](posts/chapter-1/a1-edwithchoi.md)
 * [Chapter-2 Probability Distributions](posts/chapter-2/0-intro.md)
     * [2.1 Binary Variables]()
     * [2.2 Multinomial Variables]()

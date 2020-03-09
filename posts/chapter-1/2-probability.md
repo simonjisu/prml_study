@@ -36,13 +36,11 @@ ax.set_ylabel("$Y$", fontsize=20).set_rotation(0)
 plt.show()
 ```
 
-{% tabs first="Math", second="Python" %}
-
-{% content "Math" %}
+{% tabs name="Math" type="markdown" -%}
 
 $$\tag{1} p(X=x_i, Y=y_j) = \dfrac{n_{ij}}{N}$$
 
-{% content "Python" %}
+{%- tabs name="Python" type="py" -%}
 ```python
 def joint_probability(i, j, A):
     return round(A.T[i, j] / A.size, 4)
@@ -50,7 +48,7 @@ def joint_probability(i, j, A):
 joint_probability(0, 1, A)
 ```
 
-{% endtabs %}
+{%- endtabs %}
 
 확률 변수 $$Y$$에 관계없이 $$X=x_i$$의 시도 횟수를 $$c_i$$, $$X$$에 관계없이 $$Y=y_j$$의 시도 횟수를 $$r_j$$라고 하면, 다음과 같이 표현할 수 있다.
 
