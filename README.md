@@ -7,3 +7,4 @@
 * 블로그: [https://simonjisu.github.io](https://simonjisu.github.io)
 * GitBook: [https://soo.gitbook.io/prml/](https://soo.gitbook.io/prml/)
 
+Update
